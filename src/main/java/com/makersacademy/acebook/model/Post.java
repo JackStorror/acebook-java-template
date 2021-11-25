@@ -9,7 +9,6 @@ import java.time.Instant;
 import java.time.OffsetDateTime;
 import java.sql.Date;
 import javax.persistence.*;
-
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
@@ -44,6 +43,7 @@ public class Post {
     public Integer getLikes(){return this.likes;}
     public String getContent() { return this.content; }
     public void setContent(String content) { this.content = content; }
+
 
 //    public String getImagefile() {
 //        return imagefile;

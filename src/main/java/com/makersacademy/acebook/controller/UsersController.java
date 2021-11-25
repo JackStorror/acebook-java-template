@@ -39,6 +39,7 @@ public class UsersController {
         return new RedirectView("/login");
     }
 
+
     @GetMapping("login")
     public String getLoginView() {
         return "authentication/login";
@@ -60,4 +61,23 @@ public class UsersController {
 //
 //        return new RedirectView("/users", true);
 //    }
+
+
+
+//    @PostMapping("/users/save")
+//    public RedirectView saveUser(User user,
+//                                 @RequestParam("image") MultipartFile multipartFile) throws IOException {
+//
+//        String fileName = StringUtils.cleanPath(multipartFile.getOriginalFilename());
+//        user.setPhotos(fileName);
+//
+//        User savedUser = repo.save(user);
+//
+//        String uploadDir = "user-photos/" + savedUser.getId();
+//
+//        FileUploadUtil.saveFile(uploadDir, fileName, multipartFile);
+//
+//        return new RedirectView("/users", true);
+//    }
+
 }

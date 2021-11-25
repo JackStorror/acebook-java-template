@@ -85,5 +85,31 @@
     </form>
 
 
+
+            </div>
+        </div>
+    </div>
+
+<!--    <form method="post" action="/uploadFile" enctype="multipart/form-data">-->
+<!--        <input type="file" name="myfile" accept="image/*">-->
+<!--        <img id="thumbnail" alt="logo-preview"/>-->
+<!--        <input type="submit" value="Upload">-->
+<!--    </form>-->
+
+    <form th:action="@{/users/save}"
+          th:object="${user}" method="post"
+          enctype="multipart/form-data"
+    >
+        ...
+        <div>
+
+            <label>Photos: </label>
+            <input type="file" name="image" accept="image/png, image/jpeg" />
+
+        </div>
+        ...
+    </form>
+
+
     </body>
 </html>
