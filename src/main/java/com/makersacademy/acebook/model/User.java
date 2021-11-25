@@ -1,10 +1,6 @@
 package com.makersacademy.acebook.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import javax.persistence.GenerationType;
+import javax.persistence.*;
 
 import lombok.Data;
 
@@ -20,6 +16,9 @@ public class User {
     private String username;
     private String password;
     private boolean enabled;
+
+    @Column(nullable = true, length = 64)
+    private String photos;
 
     public User() {
         this.enabled = TRUE;

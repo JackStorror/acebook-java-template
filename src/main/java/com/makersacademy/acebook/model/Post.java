@@ -1,12 +1,10 @@
 package com.makersacademy.acebook.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import javax.persistence.GenerationType;
+import javax.persistence.*;
 
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 @Data
 @Entity
@@ -18,12 +16,29 @@ public class Post {
     private Long id;
     private String content;
 
-    public Post() {}
+//    @Column
+//    private String imagefile;
+
+    public Post() {
+    }
 
     public Post(String content) {
         this.content = content;
     }
-    public String getContent() { return this.content; }
-    public void setContent(String content) { this.content = content; }
 
+    public String getContent() {
+        return this.content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
+
+//    public String getImagefile() {
+//        return imagefile;
+//    }
+//
+//    public void setImagefile(String imagefile) {
+//        this.imagefile = imagefile;
+//    }
 }
