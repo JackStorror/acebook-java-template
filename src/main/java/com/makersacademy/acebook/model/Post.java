@@ -38,23 +38,12 @@ public class Post {
     public Post(String content) {
         this.content = content;
     }
-<<<<<<< HEAD
 
     public Timestamp getStamp() {return this.stamp;}
 
     public Integer getLikes(){return this.likes;}
     public String getContent() { return this.content; }
     public void setContent(String content) { this.content = content; }
-=======
->>>>>>> 4f1458a (Nav bar edits and start of image upload feature)
-
-    public String getContent() {
-        return this.content;
-    }
-
-    public void setContent(String content) {
-        this.content = content;
-    }
 
 //    public String getImagefile() {
 //        return imagefile;
