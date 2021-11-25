@@ -18,8 +18,8 @@ public class User {
     private String password;
     private boolean enabled;
 
-    @Column(nullable = true, length = 64)
-    private String imagefile;
+//    @Column(nullable = true, length = 64)
+//    private String imagefile;
 
     public User() {
         this.enabled = TRUE;
