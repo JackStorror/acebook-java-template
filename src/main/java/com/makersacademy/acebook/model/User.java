@@ -18,7 +18,7 @@ public class User {
     private boolean enabled;
 
     @Column(nullable = true, length = 64)
-    private String photos;
+    private String imagefile;
 
     public User() {
         this.enabled = TRUE;
