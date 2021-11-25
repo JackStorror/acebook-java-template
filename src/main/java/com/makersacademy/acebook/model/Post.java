@@ -8,6 +8,11 @@ import java.sql.Timestamp;
 import java.time.Instant;
 import java.time.OffsetDateTime;
 import java.sql.Date;
+import javax.persistence.*;
+
+import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 @Data
 @Entity
@@ -24,16 +29,38 @@ public class Post {
     private Timestamp stamp;
 
 
-    public Post() {}
+//    @Column
+//    private String imagefile;
+
+    public Post() {
+    }
 
     public Post(String content) {
         this.content = content;
     }
+<<<<<<< HEAD
 
     public Timestamp getStamp() {return this.stamp;}
 
     public Integer getLikes(){return this.likes;}
     public String getContent() { return this.content; }
     public void setContent(String content) { this.content = content; }
+=======
+>>>>>>> 4f1458a (Nav bar edits and start of image upload feature)
 
+    public String getContent() {
+        return this.content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
+
+//    public String getImagefile() {
+//        return imagefile;
+//    }
+//
+//    public void setImagefile(String imagefile) {
+//        this.imagefile = imagefile;
+//    }
 }
