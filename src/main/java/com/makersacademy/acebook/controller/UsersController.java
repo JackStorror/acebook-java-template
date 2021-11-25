@@ -39,6 +39,12 @@ public class UsersController {
         return new RedirectView("/login");
     }
 
+
+    @GetMapping("login")
+    public String getLoginView() {
+        return "authentication/login";
+    }
+
 //    @PostMapping("/users/save")
 //    public RedirectView saveUser(User user,
 //                                 @RequestParam("image") MultipartFile multipartFile) throws IOException {
@@ -54,4 +60,5 @@ public class UsersController {
 //
 //        return new RedirectView("/users", true);
 //    }
+
 }

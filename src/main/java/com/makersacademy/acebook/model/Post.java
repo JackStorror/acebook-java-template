@@ -1,7 +1,14 @@
 package com.makersacademy.acebook.model;
 
-import javax.persistence.*;
+import lombok.Data;
+import org.hibernate.annotations.CreationTimestamp;
 
+import javax.persistence.*;
+import java.sql.Timestamp;
+import java.time.Instant;
+import java.time.OffsetDateTime;
+import java.sql.Date;
+import javax.persistence.*;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
@@ -15,6 +22,11 @@ public class Post {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String content;
+    private Integer likes;
+
+    @CreationTimestamp
+    private Timestamp stamp;
+
 
 //    @Column
 //    private String imagefile;
@@ -26,13 +38,12 @@ public class Post {
         this.content = content;
     }
 
-    public String getContent() {
-        return this.content;
-    }
+    public Timestamp getStamp() {return this.stamp;}
 
-    public void setContent(String content) {
-        this.content = content;
-    }
+    public Integer getLikes(){return this.likes;}
+    public String getContent() { return this.content; }
+    public void setContent(String content) { this.content = content; }
+
 
 //    public String getImagefile() {
 //        return imagefile;
