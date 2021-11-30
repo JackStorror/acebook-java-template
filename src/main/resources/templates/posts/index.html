@@ -288,10 +288,14 @@
                 </section>
 
                 <div class="post__options">
-                    <div class="post__option">
-                        <span class="material-icons"> thumb_up </span>
+
+                    <form action="#" th:action="@{/posts/likes}" th:object="${likes}" method="post">
+                    <input  type="submit" class="post__option">
+                        <span class="material-icons" > thumb_up </span>
                         <p>Yess</p>
-                    </div>
+                    </input>
+                    </form>
+
                     <div class="post__option">
                         <span class="material-icons"> thumb_down </span>
                         <p>Naah</p>
