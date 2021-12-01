@@ -1,9 +1,11 @@
 package com.makersacademy.acebook.controller;
 
 import com.makersacademy.acebook.model.Comment;
+import com.makersacademy.acebook.model.Likes;
 import com.makersacademy.acebook.model.Post;
 import com.makersacademy.acebook.model.User;
 import com.makersacademy.acebook.repository.CommentRepository;
+import com.makersacademy.acebook.repository.LikesRepository;
 import com.makersacademy.acebook.repository.PostRepository;
 import com.makersacademy.acebook.repository.UserRepository;
 import org.omg.CORBA.Request;
@@ -36,6 +38,9 @@ public class PostsController {
 
     @Autowired
     CommentRepository commentRepository;
+
+    @Autowired
+    LikesRepository likesRepository;
 
     @GetMapping("/posts")
     public String posts(Model model) {
@@ -80,6 +85,19 @@ public class PostsController {
 //        model.addAttribute("comment", new Comment());
 //        return "/posts/comment";
 //    }
+
+    @PostMapping("/posts/{postID}/likes")
+    public RedirectView create(@PathVariable UUID postID,@ModelAttribute Likes likes) {
+        likes.setLikes(10);
+        Object principal = SecurityContextHolder. getContext(). getAuthentication(). getPrincipal();
+        String username = ((UserDetails)principal).getUsername();
+        likes.setUsername(username);
+        User user = userRepository.findByUsername(username).get(0);
+        UUID id = user.getUserID();
+        likes.setUserID(id);
+        likesRepository.save(likes);
+        return new RedirectView("/posts/{postID}");
+    }
 
     @PostMapping("/posts/{postID}/comment")
     public RedirectView create(@PathVariable UUID postID, @ModelAttribute Comment comment) {

@@ -289,19 +289,25 @@
 
                 <div class="post__options">
 
-                    <form action="#" th:action="@{/posts/likes}" th:object="${likes}" method="post">
-                    <input  type="submit" class="post__option">
-                        <span class="material-icons" > thumb_up </span>
-                        <p>Yess</p>
-                    </input>
-                    </form>
+<!--                    <form action="#" th:action="@{/posts/likes}" th:object="${likes}" method="post">-->
+<!--                    <input  type="submit" class="post__option">-->
+<!--                        <span class="material-icons" > thumb_up </span>-->
+<!--                        <p>Yess</p>-->
+<!--                    </input>-->
+<!--                    </form>-->
+
+                    <div class="post__option" >
+                        <a th:href="@{/posts/{id}(id=${post.getPostID()})}" th:object="${post}" style=" color: #000000; text-decoration:none;">
+                            <span class="material-icons"> thumb_up </span>
+                            <p>Yess</p></a>
+                    </div>
 
                     <div class="post__option">
                         <span class="material-icons"> thumb_down </span>
                         <p>Naah</p>
                     </div>
 
-                    <div class="post__option" id="commentDIV">
+                    <div class="post__option post_comment" id="commentDIV">
                         <a th:href="@{/posts/{id}(id=${post.getPostID()})}" th:object="${post}" style=" color: #000000; text-decoration:none;">
                         <span class="material-icons"> chat_bubble_outline </span>
                             <p>Comment</p></a>

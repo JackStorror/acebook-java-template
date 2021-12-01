@@ -18,6 +18,8 @@ public class Likes {
     private UUID likesID = UUID.randomUUID();
     private Integer likes;
     private UUID postID;
+    private UUID userID;
+    private String username;
 
     public Likes(Integer likes) {
         this.likes = likes;
@@ -28,6 +30,31 @@ public class Likes {
         Integer finalLikes = likes + 5;
 
         this.likes = finalLikes;}
+
+    public void setUserID(UUID userID) {
+        this.userID = userID;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public void setPostID(UUID postID) {
+        this.postID = postID;
+    }
+
+
+    public UUID getUserID() {
+        return userID;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public UUID getPostID() {
+        return postID;
+    }
 
 }
 
