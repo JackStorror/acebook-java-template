@@ -253,8 +253,9 @@
                 <div class="post__options">
                     <div class="post__option">
                         <form id="likepost" onclick="likeFunction()" th:action="@{/posts/{id}/like(id=${post.getPostID()})}" method="post">
-                        <span class="material-icons"> thumb_up </span>
-                            <p>Yess</p><input type="submit"></form>
+                            <span class="material-icons" style="margin-right:10px;"> thumb_up </span>
+                            <input class="remove_style" type="submit" value="Yess">
+                        </form>
                     </div>
                     <div class="post__option">
                         <span class="material-icons"> chat_bubble_outline </span>

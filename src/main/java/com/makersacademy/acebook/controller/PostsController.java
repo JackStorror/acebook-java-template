@@ -51,7 +51,7 @@ public class PostsController {
         String username = ((UserDetails)principal).getUsername();
         User userloggedin = userRepository.findByUsername(username).get(0);
         Iterable<User> users = userRepository.findAll();
-
+        List<Like> likes = likeRepository.findAll();
         model.addAttribute("posts", posts);
         model.addAttribute("post", new Post());
         model.addAttribute("comments", comments);

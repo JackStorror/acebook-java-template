@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5"
-      xmlns:text-decoration="http://www.w3.org/1999/xhtml">
+      xmlns:text-decoration="http://www.w3.org/1999/xhtml" xmlns="http://www.w3.org/1999/html">
 
 <head lang="en">
     <meta charset="UTF-8" />
@@ -246,7 +246,7 @@
             <div class="post">
                 <div class="post__top">
                     <img class="user__avatar post__avatar"
-                         <ul th:each="user: ${users}">
+
                          th:src="${user.getuserimage()}" alt="" />
                     <div class="post__topInfo">
                         <!-- post name -->
@@ -259,6 +259,7 @@
                         <!-- time of post-->
                         <p class="anchor-time"> Posted: <a href="#" class="anchor-time" th:text="${post.stamp}"></a></p>
                     </div>
+
                 </div>
 
                 <div class="post__bottom">
@@ -284,20 +285,26 @@
                 </section>
 
                 <div class="post__options">
+
+<!--                    Send to Jack-->
                     <div class="post__option">
                         <form id="likepost" onclick="likeFunction()" th:action="@{/posts/{id}/like(id=${post.getPostID()})}" method="post">
-                            <span class="material-icons"> thumb_up </span>
-                            <p>Yess</p><input type="submit"></form>
+                            <span class="material-icons" style="margin-right:10px;"> thumb_up </span>
+                            <input class="remove_style" type="submit" value="Yess">
+                        </form>
                     </div>
+<!--                    End-->
+
                     <div class="post__option">
                         <span class="material-icons"> thumb_down </span>
                         <p>Naah</p>
                     </div>
 
                     <div class="post__option" id="commentDIV">
-                        <a th:href="@{/posts/{id}(id=${post.getPostID()})}" th:object="${post}" style=" color: #000000; text-decoration:none;">
-                        <span class="material-icons"> chat_bubble_outline </span>
-                            <p>Comment</p></a>
+                        <a th:href="@{/posts/{id}(id=${post.getPostID()})}" th:object="${post}" style="color: gray; text-decoration:none;">
+                            <p > <span class="material-icons" style="margin-bottom:-1px;"> chat_bubble_outline </span> Comment </p>
+
+                        </a>
                     </div>
 
                     <div class="post__option">
