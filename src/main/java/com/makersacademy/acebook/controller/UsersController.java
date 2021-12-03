@@ -68,7 +68,7 @@ public class UsersController {
                 return new RedirectView("/login");
             }
         } catch (Exception e) {
-            return new RedirectView("/users/new?exists");
+            return new RedirectView("users/new?exists");
         }
 
     }
@@ -97,7 +97,7 @@ public class UsersController {
         model.addAttribute("comment", new Comment());
         model.addAttribute("likes", likes);
         model.addAttribute("like", new Like());
-        return "/users/profile";
+        return "users/profile";
     }
 
     @PostMapping("/users/{username}/upload")
@@ -119,7 +119,7 @@ public class UsersController {
         User user = userRepository.findByUsername(username).get(0);
         user.setuserimage(filePath);
         userRepository.save(user);
-        return new RedirectView("/users/{username}");
+        return new RedirectView("users/{username}");
 
 
     }
