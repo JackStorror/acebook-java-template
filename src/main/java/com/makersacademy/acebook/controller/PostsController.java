@@ -84,7 +84,7 @@ public class PostsController {
         model.addAttribute("comment", new Comment());
         model.addAttribute("likes", likes);
         model.addAttribute("users", users);
-        return "/posts/post";
+        return "posts/post";
     }
 
     @PostMapping("/posts")
@@ -111,14 +111,14 @@ public class PostsController {
             post.setUserID(id);
             post.setUsername(username);
             repository.save(post);
-            return new RedirectView("/posts");
+            return new RedirectView("posts");
         }
         UUID id = user.getUserID();
         post.setProfileImage(user.getuserimage());
             post.setUserID(id);
             post.setUsername(username);
             repository.save(post);
-            return new RedirectView("/posts");
+            return new RedirectView("posts");
     }
 
     @PostMapping("/posts/{postID}/comment")
@@ -132,7 +132,7 @@ public class PostsController {
         comment.setProfile_image(user.getuserimage());
         comment.setUserID(id);
         commentRepository.save(comment);
-        return new RedirectView("/posts/{postID}");
+        return new RedirectView("posts/{postID}");
     }
 
     @PostMapping("/posts/{postID}/like")
@@ -149,7 +149,7 @@ public class PostsController {
             Post post = repository.findById(postID).get();
             post.setLikeCount(variable);
             repository.save(post);
-            return new RedirectView("/posts/{postID}");
+            return new RedirectView("posts/{postID}");
         } catch (Exception e) {
             like.setPostID(postID);
             like.setUserID(id);
@@ -159,14 +159,14 @@ public class PostsController {
             Post post = repository.findById(postID).get();
             post.setLikeCount(variable);
             repository.save(post);
-            return new RedirectView("/posts/{postID}");
+            return new RedirectView("posts/{postID}");
         }
     }
 
-    @PostMapping("/posts/{postID}/delete")
+    @PostMapping("posts/{postID}/delete")
     public RedirectView delete(@PathVariable UUID postID) {
         repository.deleteById(postID);
-        return new RedirectView("/posts");
+        return new RedirectView("posts");
     }
 
 }
